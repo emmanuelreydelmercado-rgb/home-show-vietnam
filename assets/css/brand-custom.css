@@ -8,6 +8,8 @@
 .brand-scroll-track {
     display: flex;
     gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     animation: scroll 30s linear infinite;
     width: max-content;
 }

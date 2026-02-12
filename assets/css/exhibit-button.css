@@ -1,0 +1,525 @@
+/* Exhibit Button Styles with Premium Animated Glow Effect */
+
+.exhibit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.exhibit-button a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.exhibit-button button {
+    position: relative;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #399b62 0%, #2d7a4d 50%, #399b62 100%);
+    border: 2px solid #e69c43;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(57, 155, 98, 0.3),
+        0 0 30px rgba(230, 156, 67, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Animated glowing orb inside button */
+.exhibit-button button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(230, 156, 67, 0.8) 0%, rgba(230, 156, 67, 0.3) 40%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: glowMove 3s ease-in-out infinite;
+    filter: blur(8px);
+}
+
+/* Second glowing orb for layered effect */
+.exhibit-button button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -100%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(57, 155, 98, 0.9) 0%, rgba(57, 155, 98, 0.4) 40%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+    animation: glowMove2 3.5s ease-in-out infinite;
+    filter: blur(10px);
+}
+
+/* Hover effect */
+.exhibit-button button:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(135deg, #2d7a4d 0%, #399b62 50%, #2d7a4d 100%);
+    border-color: #d88a35;
+    box-shadow: 0 12px 35px rgba(57, 155, 98, 0.5),
+        0 0 50px rgba(230, 156, 67, 0.4),
+        inset 0 0 20px rgba(230, 156, 67, 0.2);
+}
+
+/* Active/Click effect */
+.exhibit-button button:active {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(57, 155, 98, 0.4),
+        0 0 30px rgba(230, 156, 67, 0.3);
+}
+
+/* Glowing orb animation - moves left to right */
+@keyframes glowMove {
+    0% {
+        left: -10%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        left: 50%;
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
+}
+
+/* Second glowing orb animation - moves right to left with delay */
+@keyframes glowMove2 {
+    0% {
+        right: -10%;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        right: 50%;
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        right: 110%;
+        opacity: 0;
+    }
+}
+
+/* Pulsing border glow effect */
+@keyframes borderPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 20px rgba(57, 155, 98, 0.3),
+            0 0 30px rgba(230, 156, 67, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 8px 25px rgba(57, 155, 98, 0.5),
+            0 0 45px rgba(230, 156, 67, 0.4);
+    }
+}
+
+.exhibit-button button {
+    animation: borderPulse 2s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .exhibit-button button {
+        padding: 15px 35px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .exhibit-button button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    .exhibit-button {
+        padding: 30px 15px;
+    }
+
+    /* Hide arrows completely on mobile */
+    .parallax-arrows {
+        display: none !important;
+    }
+
+    /* Change to vertical layout on mobile */
+    .exhibit-button-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Rotate arrows to point vertically on mobile */
+    .left-arrows .chevron-arrow {
+        transform: rotate(0deg) !important;
+        /* Point down */
+    }
+
+    .right-arrows .chevron-arrow {
+        transform: rotate(180deg) !important;
+        /* Point up */
+    }
+
+    /* Make arrows smaller on mobile */
+    .chevron-arrow {
+        width: 60px !important;
+        height: 40px !important;
+    }
+
+    .chevron-arrow::before,
+    .chevron-arrow::after {
+        width: 35px !important;
+        height: 8px !important;
+    }
+
+    .chevron-arrow::before {
+        top: 20px !important;
+    }
+
+    .chevron-arrow::after {
+        top: 20px !important;
+    }
+
+    /* Update animations for vertical movement on mobile */
+    .left-arrows.animate .chevron-arrow {
+        animation: slideDownFade 3s ease-in-out forwards !important;
+    }
+
+    .right-arrows.animate .chevron-arrow {
+        animation: slideUpFade 3s ease-in-out forwards !important;
+    }
+}
+
+/* Mobile vertical animations */
+@keyframes slideDownFade {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateY(40px) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(60px) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slideUpFade {
+    0% {
+        transform: translateY(0) rotate(180deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateY(-40px) rotate(180deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-60px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+
+/* Container for button with side arrows */
+.exhibit-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Floating Chevron Arrows - On Sides - Horizontal Zigzag Pattern */
+.parallax-arrows {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    overflow: visible;
+    height: auto;
+}
+
+.chevron-arrow {
+    width: 100px;
+    height: 60px;
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+    margin: 0 -15px;
+}
+
+/* All arrows aligned linearly */
+.chevron-arrow:nth-child(1),
+.chevron-arrow:nth-child(2),
+.chevron-arrow:nth-child(3) {
+    margin-top: 0;
+}
+
+/* Create the chevron shape using pseudo-elements - sharp pointed tips */
+.chevron-arrow::before,
+.chevron-arrow::after {
+    content: '';
+    position: absolute;
+    width: 55px;
+    height: 12px;
+    background: linear-gradient(90deg, #e69c43 0%, #d88a35 50%, #e69c43 100%);
+    border-radius: 0;
+    box-shadow: 0 0 15px rgba(230, 156, 67, 0.6),
+        0 0 25px rgba(230, 156, 67, 0.3);
+}
+
+/* Left side of chevron - sharp point */
+.chevron-arrow::before {
+    left: -2px;
+    top: 30px;
+    transform: rotate(-50deg);
+    transform-origin: right center;
+}
+
+/* Right side of chevron - sharp point */
+.chevron-arrow::after {
+    right: -2px;
+    top: 30px;
+    transform: rotate(50deg);
+    transform-origin: left center;
+}
+
+/* Stagger the floating animations */
+.chevron-arrow:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.chevron-arrow:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.chevron-arrow:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.chevron-arrow:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+.chevron-arrow:nth-child(5) {
+    animation-delay: 3.2s;
+}
+
+/* Continuous upward floating animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+/* Hover effect on individual arrows */
+.chevron-arrow:hover::before,
+.chevron-arrow:hover::after {
+    box-shadow: 0 0 20px rgba(230, 156, 67, 0.8),
+        0 0 35px rgba(230, 156, 67, 0.5);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .chevron-arrow {
+        width: 100px;
+        height: 7px;
+    }
+
+    .chevron-arrow::before,
+    .chevron-arrow::after {
+        width: 50px;
+        height: 7px;
+    }
+
+    .parallax-arrows {
+        gap: 20px;
+        padding: 30px 0 50px 0;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chevron-arrow {
+        width: 80px;
+        height: 6px;
+    }
+
+    .chevron-arrow::before,
+    .chevron-arrow::after {
+        width: 40px;
+        height: 6px;
+    }
+
+    .parallax-arrows {
+        gap: 15px;
+        padding: 25px 0 40px 0;
+        height: 220px;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .chevron-arrow {
+        width: 80px;
+        height: 50px;
+    }
+
+    .chevron-arrow::before,
+    .chevron-arrow::after {
+        width: 45px;
+        height: 10px;
+    }
+
+    .chevron-arrow::before {
+        top: 25px;
+    }
+
+    .chevron-arrow::after {
+        top: 25px;
+    }
+
+    .parallax-arrows {
+        gap: 20px;
+        padding: 30px 0 50px 0;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chevron-arrow {
+        width: 70px;
+        height: 40px;
+    }
+
+    .chevron-arrow::before,
+    .chevron-arrow::after {
+        width: 38px;
+        height: 9px;
+    }
+
+    .chevron-arrow::before {
+        top: 20px;
+    }
+
+    .chevron-arrow::after {
+        top: 20px;
+    }
+
+    .parallax-arrows {
+        gap: 20px;
+        padding: 25px 0 40px 0;
+        height: 220px;
+    }
+}
+
+/* Rotate left arrows to point RIGHT toward button */
+.left-arrows .chevron-arrow {
+    transform: rotate(90deg);
+    opacity: 1;
+}
+
+/* Rotate right arrows to point LEFT toward button */
+.right-arrows .chevron-arrow {
+    transform: rotate(-90deg);
+    opacity: 1;
+}
+
+/* Trigger animation only when .animate class is added */
+.left-arrows.animate .chevron-arrow {
+    animation: slideRightFade 3s ease-in-out forwards;
+}
+
+.right-arrows.animate .chevron-arrow {
+    animation: slideLeftFade 3s ease-in-out forwards;
+}
+
+/* Left arrows slide toward button and disappear */
+@keyframes slideRightFade {
+    0% {
+        transform: translateX(0) rotate(90deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateX(50px) rotate(90deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(80px) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+/* Right arrows slide toward button and disappear */
+@keyframes slideLeftFade {
+    0% {
+        transform: translateX(0) rotate(-90deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateX(-50px) rotate(-90deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(-80px) rotate(-90deg);
+        opacity: 0;
+    }
+}

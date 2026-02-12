@@ -36,6 +36,7 @@
     min-height: 295px;
     transition: 0.7s;
     border: 2px solid transparent;
+    margin-top: 18px;
 }
 
 .solution_cards_box .solution_card:hover {
