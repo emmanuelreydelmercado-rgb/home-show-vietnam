@@ -20,33 +20,47 @@
     flex-shrink: 0;
 }
 
-/* Brand wrapper styling for consistent brand logos */
+/* Brand wrapper styling - matching solution_card design */
 .brand-area .brand-wrapper {
     width: 230px;
     height: 170px;
-    border-radius: 8px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+        0 5px 15px 0 rgba(37, 44, 97, 0.15);
+    border-radius: 15px;
     padding: 15px;
-    transition: background 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.7s;
+    border: 2px solid transparent;
 }
 
-/* Odd items - orange background, green on hover */
-.brand-item:nth-child(odd) .brand-wrapper {
-    background: #84cea3;
+/* Decorative layer behind the card */
+.brand-area .brand-wrapper::before {
+    content: "";
+    position: absolute;
+    background: rgba(57, 155, 98, 0.08);
+    width: 170px;
+    height: 200px;
+    z-index: -1;
+    transform: rotate(42deg);
+    right: -56px;
+    top: -23px;
+    border-radius: 35px;
 }
 
-.brand-item:nth-child(odd) .brand-wrapper:hover {
-    background: #e0b179;
+/* Hover effect - gradient background and scale */
+.brand-area .brand-wrapper:hover {
+    background: linear-gradient(135deg, #399b62 0%, #2d7a4d 100%);
+    transform: scale(1.1);
+    z-index: 9;
+    border: 2px solid #e69c43;
     cursor: pointer;
 }
 
-/* Even items - green background, orange on hover */
-.brand-item:nth-child(even) .brand-wrapper {
-    background: #e0b179;
-}
-
-.brand-item:nth-child(even) .brand-wrapper:hover {
-    background: #84cea3;
-    cursor: pointer;
+.brand-area .brand-wrapper:hover::before {
+    background: rgba(230, 156, 67, 0.2);
 }
 
 .brand-area .brand-wrapper img {
