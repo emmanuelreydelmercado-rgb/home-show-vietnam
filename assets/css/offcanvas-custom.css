@@ -1,0 +1,4 @@
+/* Override offcanvas spacing */
+.twoffcanvas__input {
+    margin-bottom: 20px !important;
+}
