@@ -1,0 +1,113 @@
+.gallery-slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.gallery-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    clip-path: inset(0 0 0 0);
+}
+
+.gallery-slide {
+    position: absolute;
+    width: 320px;
+    height: 420px;
+    isolation: isolate;
+
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(0.8);
+
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    will-change: transform, opacity;
+
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+    pointer-events: none;
+    /* IMPORTANT */
+}
+
+
+.gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    backface-visibility: hidden;
+}
+
+/* Active center slide */
+.gallery-slide.active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1.2);
+    z-index: 10;
+}
+
+/* Navigation Buttons */
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 30px;
+}
+
+.gallery-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #e69c43;
+    color: #e69c43;
+    background: transparent;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gallery-btn:hover {
+    background: #e69c43;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 156, 67, 0.4);
+}
+
+
+.gallery-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.gallery-btn:active {
+    transform: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .gallery-slide {
+        width: 260px;
+        height: 360px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .gallery-slide {
+        width: 220px;
+        height: 300px;
+    }
+}
